@@ -1,6 +1,6 @@
 const { MongoClient, ObjectID } = require('mongodb')
 
-const connectionURL = 'mongodb://127.0.0.1:27017'
+const connectionURL = process.env.DB_URL
 const databaseName = 'task-manager'
 
 MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) => {
@@ -16,38 +16,5 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
         console.log(result)
     }).catch((error) => {
         console.log(error)
-
-
-        // db.collection('users').deleteMany({
-        //     age: 27
-        // }).then((result) => {
-        //     console.log(result)
-        // }).catch((error) => {
-        //     console.log(error)
-        // })
-
-        // db.collection('users').updateOne({
-        //     _id: new ObjectID("5f1755feb102024638d26d50")
-        // }, {
-        //     $inc: {
-        //         age: 1
-        //     }
-        // }).then((result) => {
-        //     console.log(result)
-        // }).catch((error) => {
-        //     console.log(error)
-        // })
-
-        // db.collection('tasks').updateMany({
-        //     completed: true
-        // }, {
-        //     $set: {
-        //         completed: false
-        //     }
-        // }).then((result) => {
-        //     console.log(result)
-        // }).catch((error) => {
-        //     console.log(error)
-        // })
-
     })
+})
